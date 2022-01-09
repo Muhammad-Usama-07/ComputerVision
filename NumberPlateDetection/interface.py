@@ -10,36 +10,44 @@ patterns= [r'\w+']
 
 num_plat_classif = cv.CascadeClassifier(r'F:\AI&DS\ComputerVision\cascadeFiles\russian_number_plate.xml')
 pytesseract.pytesseract.tesseract_cmd = r'C:\Users\rajee\AppData\Local\Tesseract-OCR\tesseract.exe'
-window = Tk()
 counter = 0
+def count():
+    global counter
+    counter +=1
+    return counter
+
+window = Tk()
 
 def upload():
-    global counter
-    counter =counter+1
+
 
     filename = fd.askopenfilename()
-    # print(filename)
-    lb5.config(text = "Car Passed : "+str(counter))
+    # print(count())
+    lb5.config(text = "Car Passed : "+str(count()))
 
-    new_img_path = Image.open(filename)
-    resized_img = new_img_path.resize((520, 350), Image.ANTIALIAS)
-    new_img = ImageTk.PhotoImage(resized_img)
-    img_label.configure(image = new_img)
-    img_label.image = new_img
+
     img = cv.imread(filename)
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     number = num_plat_classif.detectMultiScale(img, 1.2)
     for (x, y, w, h) in number:
-        counter = counter + 1
         roi_gray = gray[y:y + h, x:x + w]
         roi_color = img[y:y + h, x:x + w]
-        cv.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 3)
+        new_img_path = cv.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 3)
+        imgg = Image.fromarray(new_img_path)
+        resized_img = imgg.resize((520, 350), Image.ANTIALIAS)
+        new_img = ImageTk.PhotoImage(resized_img)
+        img_label.configure(image=new_img)
+        img_label.image = new_img
         text = pytesseract.image_to_string(roi_gray, config='--psm 11')
         for p in patterns:
             match = re.findall(p, text)
             joined = "".join(match)
             lb4.config(text = "Plate No. : " + str(joined))
             print('Number Plate: ' + joined)
+
+
+
+
 window.title('Number Plate Detection')
 window.configure(bg='#7DBCE3')
 screen_width = window.winfo_screenwidth()

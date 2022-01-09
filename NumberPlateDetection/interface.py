@@ -1,10 +1,19 @@
 import tkinter
 from tkinter import *
 from PIL import ImageTk, Image
+from tkinter import filedialog as fd
 
 
 window = Tk()
 
+def upload():
+    filename = fd.askopenfilename()
+    print(filename)
+    new_img_path = Image.open(filename)
+    resized_img = new_img_path.resize((520, 350), Image.ANTIALIAS)
+    new_img = ImageTk.PhotoImage(resized_img)
+    img_label.configure(image = new_img)
+    img_label.image = new_img
 window.title('Number Plate Detection')
 window.configure(bg='#7DBCE3')
 screen_width = window.winfo_screenwidth()
@@ -35,7 +44,6 @@ image_path = './images/rough.png'
     # Getting image
 my_pic = Image.open(image_path)
     # Resizing Image
-global resized
 resized = my_pic.resize((520, 350), Image.ANTIALIAS)
     # Displaying image
 new_pic = ImageTk.PhotoImage(resized)
@@ -45,7 +53,7 @@ img_label.place(relx=0.3, rely=0.6, anchor=CENTER)
 
 upload_button = tkinter.Button(text='click to upload', bg='#2A9BE1',
                                font=("Times%New%Roman", 15, "bold"),
-                               relief="solid")
+                               relief="solid", command=upload)
 upload_button.place(relx=0.2, rely=0.9)
 
 window.mainloop()

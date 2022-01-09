@@ -20,8 +20,16 @@ lb1 = tkinter.Label(text="Number Plate Detection Application", bg="#2A9BE1", rel
                     height=2, font="Bahnschrift 20 bold", anchor=CENTER)
 lb1.pack(side=TOP, fill=BOTH)
 
-lb2 = tkinter.Label(text="Upload Image", bg="#7DBCE3", font="Bahnschrift 22 bold ")
+lb2 = tkinter.Label(text="Upload Image", bg="#7DBCE3", font="Bahnschrift 24 bold ")
 lb2.place(relx=0.2, rely=0.2 )
+lb3 = tkinter.Label(text="Details", bg="#7DBCE3", font="Bahnschrift 24 bold ")
+lb3.place(relx=0.7, rely=0.2 )
+lb4 = tkinter.Label(text="Plate No. : ", bg="#7DBCE3", font="Bahnschrift 20 bold ")
+lb4.place(relx=0.6, rely=0.4 )
+lb5 = tkinter.Label(text="Car NO. : ", bg="#7DBCE3", font="Bahnschrift 20 bold ")
+lb5.place(relx=0.6, rely=0.5 )
+lb6 = tkinter.Label(text="Today's Count : ", bg="#7DBCE3", font="Bahnschrift 20 bold ")
+lb6.place(relx=0.6, rely=0.6 )
 
 image_path = './images/rough.png'
     # Getting image

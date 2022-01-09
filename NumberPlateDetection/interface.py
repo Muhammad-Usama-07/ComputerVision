@@ -2,8 +2,11 @@ import tkinter
 from tkinter import *
 from PIL import ImageTk, Image
 from tkinter import filedialog as fd
+import cv2 as cv
+import pytesseract
 
-
+num_plat_classif = cv.CascadeClassifier(r'F:\AI&DS\ComputerVision\cascadeFiles\russian_number_plate.xml')
+pytesseract.pytesseract.tesseract_cmd = r'C:\Users\rajee\AppData\Local\Tesseract-OCR\tesseract.exe'
 window = Tk()
 
 def upload():

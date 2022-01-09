@@ -4,19 +4,42 @@ from PIL import ImageTk, Image
 from tkinter import filedialog as fd
 import cv2 as cv
 import pytesseract
+import re
+patterns= [r'\w+']
+
 
 num_plat_classif = cv.CascadeClassifier(r'F:\AI&DS\ComputerVision\cascadeFiles\russian_number_plate.xml')
 pytesseract.pytesseract.tesseract_cmd = r'C:\Users\rajee\AppData\Local\Tesseract-OCR\tesseract.exe'
 window = Tk()
+counter = 0
 
 def upload():
+    global counter
+    counter =counter+1
+
     filename = fd.askopenfilename()
-    print(filename)
+    # print(filename)
+    lb5.config(text = "Car Passed : "+str(counter))
+
     new_img_path = Image.open(filename)
     resized_img = new_img_path.resize((520, 350), Image.ANTIALIAS)
     new_img = ImageTk.PhotoImage(resized_img)
     img_label.configure(image = new_img)
     img_label.image = new_img
+    img = cv.imread(filename)
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    number = num_plat_classif.detectMultiScale(img, 1.2)
+    for (x, y, w, h) in number:
+        counter = counter + 1
+        roi_gray = gray[y:y + h, x:x + w]
+        roi_color = img[y:y + h, x:x + w]
+        cv.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 3)
+        text = pytesseract.image_to_string(roi_gray, config='--psm 11')
+        for p in patterns:
+            match = re.findall(p, text)
+            joined = "".join(match)
+            lb4.config(text = "Plate No. : " + str(joined))
+            print('Number Plate: ' + joined)
 window.title('Number Plate Detection')
 window.configure(bg='#7DBCE3')
 screen_width = window.winfo_screenwidth()
@@ -32,16 +55,14 @@ lb1 = tkinter.Label(text="Number Plate Detection Application", bg="#2A9BE1", rel
                     height=2, font="Bahnschrift 20 bold", anchor=CENTER)
 lb1.pack(side=TOP, fill=BOTH)
 
-lb2 = tkinter.Label(text="Upload Image", bg="#7DBCE3", font="Bahnschrift 24 bold ")
-lb2.place(relx=0.2, rely=0.2 )
+lb2 = tkinter.Label(text="Upload and Recognitze Image", bg="#7DBCE3", font="Bahnschrift 24 bold ")
+lb2.place(relx=0.1, rely=0.2 )
 lb3 = tkinter.Label(text="Details", bg="#7DBCE3", font="Bahnschrift 24 bold ")
 lb3.place(relx=0.7, rely=0.2 )
-lb4 = tkinter.Label(text="Plate No. : ", bg="#7DBCE3", font="Bahnschrift 20 bold ")
+lb4 = tkinter.Label(text="Plate No. : XXXXXX", bg="#7DBCE3", font="Bahnschrift 20 bold ")
 lb4.place(relx=0.6, rely=0.4 )
-lb5 = tkinter.Label(text="Car NO. : ", bg="#7DBCE3", font="Bahnschrift 20 bold ")
+lb5 = tkinter.Label(text="Car Passed : 0", bg="#7DBCE3", font="Bahnschrift 20 bold ")
 lb5.place(relx=0.6, rely=0.5 )
-lb6 = tkinter.Label(text="Today's Count : ", bg="#7DBCE3", font="Bahnschrift 20 bold ")
-lb6.place(relx=0.6, rely=0.6 )
 
 image_path = './images/rough.png'
     # Getting image

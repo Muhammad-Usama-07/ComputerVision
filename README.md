@@ -9,6 +9,10 @@ This Repository contains all my work & projects associated to Computer Vision fi
 
 ## Projects
  - [Face Recognition (Attendence System)](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/FaceRecognition(attendence))
+
+    **Libraries:** OpenCv, Python, Pandas, Numpy
+    **Pre-Trained Models:** Face Detection Harcasecade, Eye detection Harcascade
+
  - [Number Plate Detection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/NumberPlateDetection)
  - [Eye Blink Detection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/EyeBlinkDetection)
 

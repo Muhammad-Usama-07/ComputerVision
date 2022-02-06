@@ -23,4 +23,5 @@ This Repository contains all my work & projects associated to Computer Vision fi
     **Libraries:** OpenCv, Python, dlib, math
     **Pre-Trained Models:** Face Detection Harcasecade
 
- 
+ - [Spoofing Face Detection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/SpoofingDetection)
+

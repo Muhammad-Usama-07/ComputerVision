@@ -16,6 +16,7 @@ This Repository contains all my work & projects associated to Computer Vision fi
  - [Number Plate Detection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/NumberPlateDetection)
 
     **Libraries:** OpenCv, Python, Pandas, Numpy, Easy OCR
+    
     **Pre-Trained Models:** Number Plate Detection Harcasecade
 
  - [Eye Blink Detection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/EyeBlinkDetection)

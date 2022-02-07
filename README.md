@@ -30,5 +30,6 @@ This Repository contains all my work & projects associated to Computer Vision fi
 
  - [Spoofing Face Detection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/SpoofingDetection)
 
-    **Libraries:** OpenCv, tensorflow, Python, 
+    **Libraries:** OpenCv, tensorflow, Python
+    
     **Pre-Trained Models:** keras Trained Model and weights of Spoofing Detection

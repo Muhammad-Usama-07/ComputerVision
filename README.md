@@ -33,3 +33,6 @@ This Repository contains all my work & projects associated to Computer Vision fi
     **Libraries:** OpenCv, tensorflow, Python
     
     **Pre-Trained Models:** keras Trained Model and weights of Spoofing Detection
+
+## References
+Harcascade Classifier: https://github.com/opencv/opencv/tree/master/data/haarcascades

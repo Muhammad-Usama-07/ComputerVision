@@ -23,13 +23,16 @@ class SnakeGameClass:
         self.imgFood = cv2.imread(pathFood, cv2.IMREAD_UNCHANGED)
         self.hFood, self.wFood, _ = self.imgFood.shape
         self.foodPoint = 0, 0
+        self.randomFoodLocation()
+        self.gameOver = False
+    def randomFoodLocation(self):
+        self.foodPoint = random.randint(100, 1000), random.randint(100, 600)
 
 
-        return imgMain
 
 
 
-game = SnakeGameClass()
+game = SnakeGameClass("Donut.png")
 while True:
     success, img = cap.read()
     img = cv2.flip(img, 1)

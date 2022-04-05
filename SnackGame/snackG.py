@@ -13,4 +13,11 @@ cap.set(4, 720)
 detector = HandDetector(detectionCon=0.8, maxHands=1)
  
  
-        
+
+while True:
+    success, img = cap.read()
+    img = cv2.flip(img, 1)
+    hands, img = detector.findHands(img, flipType=False)
+    
+    
+   

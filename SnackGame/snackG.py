@@ -28,7 +28,48 @@ class SnakeGameClass:
     def randomFoodLocation(self):
         self.foodPoint = random.randint(100, 1000), random.randint(100, 600)
 
+    def update(self, imgMain, currentHead):
 
+        if self.gameOver:
+            cvzone.putTextRect(imgMain, "Game Over", [300, 400],
+                               scale=7, thickness=5, offset=20)
+            cvzone.putTextRect(imgMain, f'Your Score: {self.score}', [300, 550],
+                               scale=7, thickness=5, offset=20)
+
+        else:
+            px, py = self.previousHead
+            cx, cy = currentHead
+            self.points.append([cx,cy])
+            distance = math.hypot(cx-px, cy-py)
+            self.lengths.append(distance)
+            self.currentLength += distance
+            self.previousHead = cx,cy
+            self.score = 0
+            # Length Reduction
+            if self.currentLength > self.allowedLength:
+                for i, length in enumerate(self.lengths):
+                    self.currentLength -= length
+                    self.lengths.pop(i)
+                    self.points.pop(i)
+                    if self.currentLength < self.allowedLength:
+                        break
+
+
+            # Check if snake ate the Food
+            rx, ry = self.foodPoint
+            if rx - self.wFood // 2 < cx < rx + self.wFood // 2 and \
+                    ry - self.hFood // 2 < cy < ry + self.hFood // 2:
+                print('ate')
+                self.randomFoodLocation()
+                self.allowedLength += 50
+                self.score += 1
+                print(self.score)
+
+
+            
+
+
+        return imgMain
 
 
 

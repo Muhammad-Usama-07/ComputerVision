@@ -45,6 +45,8 @@ This Repository contains all my work & projects associated to Computer Vision fi
  - [PersonSegmentation](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/PersonSegementation)
 
     **Libraries:** pixellib
+    
+    ![image](https://user-images.githubusercontent.com/51862131/215710079-8391f8cb-1aeb-4918-92e3-57ab637045e2.jpg)
 
 
 ## Resources

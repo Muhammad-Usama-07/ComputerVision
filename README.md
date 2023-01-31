@@ -44,6 +44,8 @@ This Repository contains all my work & projects associated to Computer Vision fi
    
  - [PersonSegmentation](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/PersonSegementation)
 
+    **Libraries:** pixellib
+
 
 ## Resources
 Harcascade Classifier: https://github.com/opencv/opencv/tree/master/data/haarcascades

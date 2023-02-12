@@ -27,7 +27,7 @@ This Repository contains all my work & projects associated to Computer Vision fi
 
  - [Eye Blink Detection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/EyeBlinkDetection)
 
-    **Libraries:** OpenCv, Python, dlib, math
+    **Libraries:** OpenCv, dlib, math
     
     **Pre-Trained Models:** Face Detection Harcasecade
 

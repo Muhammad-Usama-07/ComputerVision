@@ -5,7 +5,7 @@ This Repository contains all my work & projects associated to Computer Vision fi
 ## My Work 
  - [My OpenCv Work](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/OpenCvWork)
 
-    **Libraries:** OpenCv, Python, Pandas, Numpy
+    **Libraries:** OpenCv, Pandas, Numpy
     
     **Pre-Trained Models:** Face Detection Harcasecade
 

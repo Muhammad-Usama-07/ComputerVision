@@ -18,7 +18,7 @@ This Repository contains all my work & projects associated to Computer Vision fi
 
  - [Number Plate Detection (Desktop Application)](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/NumberPlateDetection)
 
-    **Libraries:** OpenCv, Pandas, Numpy, Easy OCR
+    **Libraries:** OpenCv, Pandas, Numpy, Easy-OCR
     
     **Pre-Trained Models:** Number Plate Detection Harcasecade
     

@@ -7,6 +7,15 @@
     <title>Face Spoofing Application</title>
 </head>
 <body>
-    <h1>Face Spoofing Application</h1>
-</body>
+    <h1>Flask API and Camera Example</h1>
+    <video autoplay></video>
+    <script>
+      const videoElement = document.querySelector('video');
+
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          videoElement.srcObject = stream;
+        });
+    </script>
+  </body>
 </html>

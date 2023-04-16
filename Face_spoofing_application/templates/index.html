@@ -9,13 +9,31 @@
 <body>
     <h1>Flask API and Camera Example</h1>
     <video autoplay></video>
+    <button>Take Snapshot</button>
+    <canvas style="display: none;"></canvas>
     <script>
       const videoElement = document.querySelector('video');
+      const buttonElement = document.querySelector('button');
+      const canvasElement = document.querySelector('canvas');
 
       navigator.mediaDevices.getUserMedia({ video: true })
         .then(stream => {
           videoElement.srcObject = stream;
         });
+
+      buttonElement.addEventListener('click', () => {
+        canvasElement.width = videoElement.videoWidth;
+        canvasElement.height = videoElement.videoHeight;
+        canvasElement.getContext('2d').drawImage(videoElement, 0, 0);
+        const dataURL = canvasElement.toDataURL('image/png');
+        fetch('/save-image', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ dataURL })
+        });
+      });
     </script>
   </body>
 </html>

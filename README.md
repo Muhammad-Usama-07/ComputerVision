@@ -12,7 +12,7 @@ This Repository contains all my work & projects associated to Computer Vision fi
 ## Projects
  - [Face Recognition (Attendence System)](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/FaceRecognition(attendence))
  
-   <img src="https://user-images.githubusercontent.com/51862131/232842037-5fd11477-1e9c-468c-992a-857d2958b5c9.png" width="200" height="400" />
+   <img src="https://user-images.githubusercontent.com/51862131/232842037-5fd11477-1e9c-468c-992a-857d2958b5c9.png" width="300" height="300" />
    
     **Libraries:** OpenCv, Pandas, Numpy
     

@@ -46,6 +46,8 @@ This Repository contains all my work & projects associated to Computer Vision fi
 
  - [PoseDetection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/PoseDetection)
 
+    <img src="https://user-images.githubusercontent.com/51862131/233164673-fddcf81e-db82-4a89-a55d-12ec62571eb3.png" width="350" height="200" />
+    
     **Libraries:** OpenCv
    
  - [PersonSegmentation](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/PersonSegementation)

@@ -5,15 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Spoofing Application</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1, button {
+        margin: 10px;
+      }
+      .button-container {
+  display: flex;
+}
+    </style>
 </head>
 <body>
     <h1>Flask API and Camera Example</h1>
     <video autoplay></video>
-    <button>Take Snapshot</button>
+    <div class="button-container">
+      <button id="button1">Take Snapshot 1</button>
+      <button id="button2">Take Snapshot 2</button>
+    </div>
     <canvas style="display: none;"></canvas>
     <script>
       const videoElement = document.querySelector('video');
-      const buttonElement = document.querySelector('button');
+      // const buttonElement = document.querySelector('button');
+      const buttonElement1 = document.querySelector('#button1');
+      const buttonElement2 = document.querySelector('#button2');
       const canvasElement = document.querySelector('canvas');
 
       navigator.mediaDevices.getUserMedia({ video: true })
@@ -21,7 +39,20 @@
           videoElement.srcObject = stream;
         });
 
-      buttonElement.addEventListener('click', () => {
+      buttonElement1.addEventListener('click', () => {
+        canvasElement.width = videoElement.videoWidth;
+        canvasElement.height = videoElement.videoHeight;
+        canvasElement.getContext('2d').drawImage(videoElement, 0, 0);
+        const dataURL = canvasElement.toDataURL('image/png');
+        fetch('/save-image', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ dataURL })
+        });
+      });
+      buttonElement2.addEventListener('click', () => {
         canvasElement.width = videoElement.videoWidth;
         canvasElement.height = videoElement.videoHeight;
         canvasElement.getContext('2d').drawImage(videoElement, 0, 0);

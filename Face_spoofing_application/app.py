@@ -1,4 +1,5 @@
 import base64
+import cv2
 import face_recognition
 from flask import Flask, jsonify, render_template, request
 app = Flask(__name__)
@@ -19,6 +20,10 @@ def save_image():
     # Find all the faces in the image
     face_locations = face_recognition.face_locations(image)
     # Return the number of faces found
+    print(face_locations)
+    for (top, right, bottom, left) in face_locations:
+        cropped_face = image[top:bottom, left:right]
+    cv2.imwrite('cropped_face.png', cv2.cvtColor(cropped_face, cv2.COLOR_RGB2BGR))
     return jsonify({'success': True, 'faces': len(face_locations)})
 
 if __name__ == '__main__':

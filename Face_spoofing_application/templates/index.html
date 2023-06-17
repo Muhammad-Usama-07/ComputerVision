@@ -23,22 +23,22 @@
     <h1>Flask API and Camera Example</h1>
     <video autoplay></video>
     <div class="button-container">
-      <button id="button1">Take Snapshot 1</button>
-      <button id="button2">Take Snapshot 2</button>
+      <button id="button1">Check Face Spoofing</button>
     </div>
     <canvas style="display: none;"></canvas>
+    <canvas style="display: none;"></canvas>
+    <p id="result"></p>
     <script>
       const videoElement = document.querySelector('video');
-      // const buttonElement = document.querySelector('button');
       const buttonElement1 = document.querySelector('#button1');
-      const buttonElement2 = document.querySelector('#button2');
       const canvasElement = document.querySelector('canvas');
-
+      const resultElement = document.querySelector('#result');
+    
       navigator.mediaDevices.getUserMedia({ video: true })
         .then(stream => {
           videoElement.srcObject = stream;
         });
-
+    
       buttonElement1.addEventListener('click', () => {
         canvasElement.width = videoElement.videoWidth;
         canvasElement.height = videoElement.videoHeight;
@@ -50,8 +50,26 @@
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({ dataURL })
+        })
+        .then(response => response.json())
+        .then(data => {
+          const { success, face_match } = data;
+          if (success) {
+            resultElement.textContent = `Face is: ${face_match}.`;
+          } 
+          else if  (success == false){
+            resultElement.textContent = 'Face not found';
+          }
+          else {
+            resultElement.textContent = 'An error occurred...';
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          resultElement.textContent = 'An error occurred...';
         });
       });
+    
       buttonElement2.addEventListener('click', () => {
         canvasElement.width = videoElement.videoWidth;
         canvasElement.height = videoElement.videoHeight;
@@ -63,8 +81,22 @@
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({ dataURL })
+        })
+        .then(response => response.json())
+        .then(data => {
+          const { success, faces } = data;
+          if (success) {
+            resultElement.textContent = `Detected ${faces} face(s).`;
+          } else {
+            resultElement.textContent = 'An error occurred.';
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          resultElement.textContent = 'An error occurred.';
         });
       });
     </script>
+    
   </body>
 </html>

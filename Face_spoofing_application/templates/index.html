@@ -11,21 +11,48 @@
         flex-direction: column;
         align-items: center;
       }
-      h1, button {
+      h1 {
         margin: 10px;
       }
+      .camera-container {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        margin-bottom: 10px;
+      }
+      .camera-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
       .button-container {
-  display: flex;
-}
+        display: flex;
+      }
+      .button-container button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #result {
+        margin: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
-    <h1>Flask API and Camera Example</h1>
-    <video autoplay></video>
+    <h1>Face Spoofing Application</h1>
+    <div class="camera-container">
+      <video autoplay></video>
+    </div>
     <div class="button-container">
       <button id="button1">Check Face Spoofing</button>
     </div>
-    <canvas style="display: none;"></canvas>
     <canvas style="display: none;"></canvas>
     <p id="result"></p>
     <script>
@@ -57,37 +84,10 @@
           if (success) {
             resultElement.textContent = `Face is: ${face_match}.`;
           } 
-          else if  (success == false){
-            resultElement.textContent = 'Face not found';
+          else if  (success === false){
+            resultElement.textContent = 'Face not found.';
           }
           else {
-            resultElement.textContent = 'An error occurred...';
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          resultElement.textContent = 'An error occurred...';
-        });
-      });
-    
-      buttonElement2.addEventListener('click', () => {
-        canvasElement.width = videoElement.videoWidth;
-        canvasElement.height = videoElement.videoHeight;
-        canvasElement.getContext('2d').drawImage(videoElement, 0, 0);
-        const dataURL = canvasElement.toDataURL('image/png');
-        fetch('/save-image', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ dataURL })
-        })
-        .then(response => response.json())
-        .then(data => {
-          const { success, faces } = data;
-          if (success) {
-            resultElement.textContent = `Detected ${faces} face(s).`;
-          } else {
             resultElement.textContent = 'An error occurred.';
           }
         })
@@ -97,6 +97,5 @@
         });
       });
     </script>
-    
-  </body>
+</body>
 </html>

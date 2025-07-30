@@ -34,6 +34,9 @@ This Repository contains all my work & projects associated to Computer Vision fi
     ![image](https://user-images.githubusercontent.com/51862131/164942933-52f3e040-f5bf-496c-920b-dc2da64cc791.png)
 
 
+ - [Video Clip Extractor](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/Video%20Clip%20Extractor)
+
+
  - [Eye Blink Detection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/EyeBlinkDetection)
 
    <img src="https://user-images.githubusercontent.com/51862131/232843772-be059723-c41d-4040-84fd-d7c8f34da613.png" width="350" height="200" />

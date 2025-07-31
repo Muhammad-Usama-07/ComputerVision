@@ -11,7 +11,7 @@ This Repository contains all my work & projects associated to Computer Vision fi
 
 ## Projects
 
- - [Image Based Recommendations)](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/Image%20Based%20Recommendation%20System)
+ - [2. Image Based Recommendations)](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/Image%20Based%20Recommendation%20System)
 
    **Libraries:** Yolo, OpenCv
 

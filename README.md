@@ -67,6 +67,8 @@ This Repository contains all my work & projects associated to Computer Vision fi
     
     ![image](https://user-images.githubusercontent.com/51862131/215710079-8391f8cb-1aeb-4918-92e3-57ab637045e2.jpg)
 
+ - [Object Detection Practices](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/Object%20Detection%20Practices)
+
 
 ## Resources
 Harcascade Classifier: https://github.com/opencv/opencv/tree/master/data/haarcascades

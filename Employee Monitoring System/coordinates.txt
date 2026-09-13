@@ -1,0 +1,4 @@
+Coordinate (x, y, width, height): (35, 116, 181, 307)
+Coordinate (x, y, width, height): (219, 201, 244, 413)
+Coordinate (x, y, width, height): (782, 276, 198, 386)
+Coordinate (x, y, width, height): (536, 134, 153, 174)

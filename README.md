@@ -57,7 +57,7 @@ This Repository contains all my work & projects associated to Computer Vision fi
     **Pre-Trained Models:** keras Trained Model and weights of Spoofing Detection
 
 
- - [PoseDetection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/PoseDetection)
+ -[PoseDetection](https://github.com/Muhammad-Usama-07/ComputerVision/tree/master/PoseDetection)
 
     <img src="https://user-images.githubusercontent.com/51862131/233164673-fddcf81e-db82-4a89-a55d-12ec62571eb3.png" width="350" height="200" />
     
